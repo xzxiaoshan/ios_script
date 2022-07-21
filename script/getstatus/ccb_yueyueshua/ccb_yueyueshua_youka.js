@@ -7,7 +7,7 @@ function monitorUrlContent(){
   // 要检测的URL
   let monitorUrl = 'https://jf.ccb.com/rewardcenter/rdProductdetail.jhtml?productId=1000000000447767&rewardId=AP012202207051024823';
   // 检测响应结果的正则表达式  
-  let monitorContentRegex = /id="pintReward">([1-9]\d*)<\/span>/;
+  let monitorContentRegex = /id="pintReward">([0-9]\d*)<\/span>/;
   
   return new Promise((resolve, reject)=>{
     let options = {
