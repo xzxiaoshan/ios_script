@@ -5,7 +5,9 @@ let magicJS = MagicJS(scriptName, "INFO");
 // 检测指定的url响应结果中是否包含对应正则表达式匹配的内容
 function monitorUrlContent(){  
   // 要检测的URL
-  let monitorUrl = 'https://jf.ccb.com/rewardcenter/rdProductdetail.jhtml?productId=1000000000447767&rewardId=AP012202207051024823';
+  #let monitorUrl = 'https://jf.ccb.com/rewardcenter/rdProductdetail.jhtml?productId=1000000000447767&rewardId=AP012202207051024823';
+  let monitorUrl = 'https://jf.ccb.com/rewardcenter/rdProductdetail.jhtml?productId=1000000000521931&rewardId=AP012202207051024812';
+  
   // 检测响应结果的正则表达式  
   let monitorContentRegex = /id="pintReward">([1-9]\d*)<\/span>/;
   
