@@ -57,20 +57,11 @@ function monitorUrlContent(){
 }
 
 (async()=>{
-  let [rejectErr, resolveVal] = await magicJS.attempt(monitorUrlContent(), []);
-  magicJS.logInfo(123456789);
-  magicJS.logInfo(resolveVal);
-  magicJS.logInfo("AAA" + resolveVal + "BBB");
+  let [rejectErr, resolveVal] = await magicJS.attempt(monitorUrlContent(), "");
   if (resolveVal){
-    magicJS.logInfo("DDD" + resolveVal + "EEE");
     // 通知
     magicJS.notify(scriptName, "", resolveVal);
   }
-  //if (rejectErr){
-  //  notifyMsg = rejectErr;
-  //}else{
-  //  notifyMsg = resolveVal;
-  //}
   magicJS.done();
 })();
 
