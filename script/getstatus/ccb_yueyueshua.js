@@ -28,25 +28,31 @@ function monitorUrlContent(){
       }
     }
     magicJS.get(options, (err, resp, data)=>{
+      magicJS.logInfo("msg-31");
       if (err){
+        magicJS.logInfo("msg-33");
         magicJS.logError(`请求[URL=${options.url}]异常：${err}`);
         reject('请求[URL=${options.url}]异常，请查阅日志！');
       }else{
         try{
+          magicJS.logInfo("msg-38");
           let dataString = typeof data === 'string'? data : JSON.stringify(data);
           magicJS.logDebug(`请求[URL=${options.url}]成功！响应内容长度=${dataString.length}`);
-                    
+          magicJS.logInfo("msg-41");
           // js正则匹配
           if (dataString.match(monitorContentRegex)){     
             let msg = `发现需要检测的内容！URL=${options.url}`;
             magicJS.logInfo(msg);
+            magicJS.logInfo("msg-46");
             resolve(msg);
           }else{
             let msg = `未发现需要检测的内容！URL=${options.url}`;
             magicJS.logInfo(msg);
+            magicJS.logInfo("msg-51");
             resolve(msg);
           }
         }catch(err){
+          magicJS.logInfo("msg-55");
           magicJS.logError(`请求[URL=${options.url}]执行异常：${err}，接口响应：${data}`);
           reject('执行响应内容发生异常，请查阅日志！');
         }
@@ -55,10 +61,12 @@ function monitorUrlContent(){
   })
 }
 
-;(async()=>{
+(async()=>{
   let [rejectErr, resolveVal] = await magicJS.attempt(monitorUrlContent, []);
+  magicJS.logInfo("msg-1");
   let notifyMsg;
   if (rejectErr){
+    magicJS.logInfo("msg-");
     notifyMsg = rejectErr;
   }else{
     notifyMsg = resolveVal;
