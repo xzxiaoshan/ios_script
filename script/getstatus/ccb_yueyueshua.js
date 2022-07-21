@@ -7,7 +7,7 @@ function monitorUrlContent(){
   // 要检测的URL
   let monitorUrl = 'https://jf.ccb.com/towOnejsonIndex.html';
   // 检测响应结果的正则表达式  
-  let monitorContentRegex = /月刷月有礼7月/;
+  let monitorContentRegex = /(月刷月有礼7月)/;
   
   return new Promise((resolve, reject)=>{
     let options = {
@@ -36,18 +36,19 @@ function monitorUrlContent(){
           let dataString = typeof data === 'string'? data : JSON.stringify(data);
           magicJS.logDebug(`请求[URL=${options.url}]成功！响应内容长度=${dataString.length}`);
           // js正则匹配
-          if (dataString.match(monitorContentRegex)){     
-            let msg = `🎈发现需要检测的内容！URL=${options.url}`;
+          let m = dataString.match(monitorContentRegex);
+          if (m){
+            let msg = `🎈发现需要检测的内容：\n${m[1]}\nURL=${options.url}`;
             magicJS.logInfo(msg);
             resolve(msg);
           }else{
-            let msg = `🎈未发现需要检测的内容！URL=${options.url}`;
+            let msg = `🎈未发现需要检测的内容：\n${m[1]}\nURL=${options.url}`;
             magicJS.logInfo(msg);
             resolve(msg);
           }
         }catch(err){
           magicJS.logInfo("msg-55");
-          magicJS.logError(`请求[URL=${options.url}]执行异常：${err}，接口响应：${data}`);
+          magicJS.logError(`请求[URL=${options.url}]执行异常：\n${err}，\n接口响应：\n${data}`);
           reject('❌执行响应内容发生异常，请查阅日志！');
         }
       }
