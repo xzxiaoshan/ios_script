@@ -7,7 +7,7 @@ function monitorUrlContent(){
   // 要检测的URL
   let monitorUrl = 'https://jf.ccb.com/towOnejsonIndex.html';
   // 检测响应结果的正则表达式  
-  let monitorContentRegex = /(月刷月有礼7月)/;
+  let monitorContentRegex = /(月刷月有礼8月)/;
   
   return new Promise((resolve, reject)=>{
     let options = {
@@ -38,11 +38,11 @@ function monitorUrlContent(){
           // js正则匹配
           let m = dataString.match(monitorContentRegex);
           if (m){
-            let msg = `🎈发现需要检测的内容：\n${m[1]}\nURL=${options.url}`;
+            let msg = `🎈发现需要检测的内容！\n内容=${m[1]}\nURL=${options.url}`;
             magicJS.logInfo(msg);
             resolve(msg);
           }else{
-            let msg = `🎈未发现需要检测的内容：\n${m[1]}\nURL=${options.url}`;
+            let msg = `🎈未发现需要检测的内容！\n规则=${monitorContentRegex}\nURL=${options.url}`;
             magicJS.logInfo(msg);
             resolve(msg);
           }
