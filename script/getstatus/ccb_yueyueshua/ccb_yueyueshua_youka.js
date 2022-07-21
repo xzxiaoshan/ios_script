@@ -58,14 +58,15 @@ function monitorUrlContent(){
 
 (async()=>{
   let [rejectErr, resolveVal] = await magicJS.attempt(monitorUrlContent(), []);
-  let notifyMsg;
-  if (rejectErr){
-    notifyMsg = rejectErr;
-  }else{
-    notifyMsg = resolveVal;
+  if (resolveVal){
+    // 通知
+    magicJS.notify(scriptName, "", resolveVal);
   }
-  // 通知
-  magicJS.notify(scriptName, "", notifyMsg);
+  //if (rejectErr){
+  //  notifyMsg = rejectErr;
+  //}else{
+  //  notifyMsg = resolveVal;
+  //}
   magicJS.done();
 })();
 
