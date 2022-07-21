@@ -62,6 +62,7 @@ function monitorUrlContent(){
   magicJS.logInfo(resolveVal);
   magicJS.logInfo("AAA" + resolveVal + "BBB");
   if (resolveVal){
+    magicJS.logInfo("DDD" + resolveVal + "EEE");
     // 通知
     magicJS.notify(scriptName, "", resolveVal);
   }
