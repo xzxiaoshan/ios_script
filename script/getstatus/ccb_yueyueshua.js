@@ -13,17 +13,17 @@ function monitorUrlContent(){
     let options = {
       url: monitorUrl,
       headers: {
-        "Host": "jf.ccb.com"
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0"
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8"
-        "Accept-Language": "zh,zh-CN;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2"
-        "Accept-Encoding": "gzip, deflate, br"
-        "Connection": "keep-alive"
-        "Cookie": "null=!a8SwlbV10sA1mDJOOJWst9It/d76v7/BqprEJ073Mp2/ZJYAf3Fxueo3phJ7jrIrYgNYqCDM5UR87PTC64XClaKpc+GAoCjJE+n3kQXg"
-        "Upgrade-Insecure-Requests": "1"
-        "Sec-Fetch-Dest": "document"
-        "Sec-Fetch-Mode": "navigate"
-        "Sec-Fetch-Site": "none"
+        "Host": "jf.ccb.com",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "zh,zh-CN;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Connection": "keep-alive",
+        "Cookie": "null=!a8SwlbV10sA1mDJOOJWst9It/d76v7/BqprEJ073Mp2/ZJYAf3Fxueo3phJ7jrIrYgNYqCDM5UR87PTC64XClaKpc+GAoCjJE+n3kQXg",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "none",
         "Sec-Fetch-User": "?1"
       }
     }
@@ -56,16 +56,15 @@ function monitorUrlContent(){
 }
 
 ;(async()=>{
-    let [rejectErr, resolveVal] = await magicJS.attempt(monitorUrlContent, []);
-    let notifyMsg;
-    if (rejectErr){
-      notifyMsg = rejectErr;
-    }else{
-      notifyMsg = resolveVal;
-    }
-    // 通知
-    magicJS.notify(scriptName, "", notifyMsg);
+  let [rejectErr, resolveVal] = await magicJS.attempt(monitorUrlContent, []);
+  let notifyMsg;
+  if (rejectErr){
+    notifyMsg = rejectErr;
+  }else{
+    notifyMsg = resolveVal;
   }
+  // 通知
+  magicJS.notify(scriptName, "", notifyMsg);
   magicJS.done();
 })();
 
