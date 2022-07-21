@@ -1,3 +1,3 @@
 # CCB月刷月有礼活动检测
 
-cron "0 0 8-20 * *" script-path=https://raw.githubusercontent.com/xzxiaoshan/ios_script/main/script/getstatus/ccb_yueyueshua/ccb_yueyueshua.js,timeout=30,tag=CCB月刷月有礼活动检测
+cron "*/1 8-20 * * *" script-path=https://raw.githubusercontent.com/xzxiaoshan/ios_script/main/script/getstatus/ccb_yueyueshua/ccb_yueyueshua.js,timeout=30,tag=CCB月刷月有礼活动检测
