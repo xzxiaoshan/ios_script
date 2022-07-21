@@ -44,7 +44,7 @@ function monitorUrlContent(){
           }else{
             let msg = `🎈未发现需要检测的内容！\n规则=${monitorContentRegex}\nURL=${options.url}`;
             magicJS.logInfo(msg);
-            resolve(msg);
+            reject(msg);
           }
         }catch(err){
           magicJS.logInfo("msg-55");
