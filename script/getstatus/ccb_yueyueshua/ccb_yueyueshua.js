@@ -47,7 +47,6 @@ function monitorUrlContent(){
             resolve(msg);
           }
         }catch(err){
-          magicJS.logInfo("msg-55");
           magicJS.logError(`请求[URL=${options.url}]执行异常：\n${err}，\n接口响应：\n${data}`);
           reject('❌执行响应内容发生异常，请查阅日志！');
         }
@@ -57,13 +56,8 @@ function monitorUrlContent(){
 }
 
 (async()=>{
-  let [rejectErr, resolveVal] = await magicJS.attempt(monitorUrlContent(), []);
-  let notifyMsg;
-  if (rejectErr){
-    notifyMsg = rejectErr;
-  }else{
-    notifyMsg = resolveVal;
-  }
+  let [rejectErr, resolveVal] = await magicJS.attempt(monitorUrlContent(), "");
+  let notifyMsg = rejectErr ? rejectErr : resolveVal;
   // 通知
   magicJS.notify(scriptName, "", notifyMsg);
   magicJS.done();
