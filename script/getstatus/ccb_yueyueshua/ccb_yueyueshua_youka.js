@@ -58,6 +58,9 @@ function monitorUrlContent(){
 
 (async()=>{
   let [rejectErr, resolveVal] = await magicJS.attempt(monitorUrlContent(), []);
+  magicJS.logInfo(123456789);
+  magicJS.logInfo(resolveVal);
+  magicJS.logInfo("" + resolveVal + "");
   if (resolveVal){
     // 通知
     magicJS.notify(scriptName, "", resolveVal);
