@@ -1,8 +1,8 @@
 # 皮皮工具箱
 
-http-request ^https?:\/\/api\.ppgjx\.com\/app\/user\/getInfo requires-body=0,script-path=http://192.168.48.181:5500/script/ppgjx/ppgjx_checkin.js,tag=皮皮工具箱_获取Cookie
+http-request ^https?:\/\/api\.ppgjx\.com\/app\/user\/getInfo requires-body=0,script-path=https://raw.githubusercontent.com/xzxiaoshan/ios_script/main/script/ppgjx/ppgjx_checkin.js,tag=皮皮工具箱_获取Cookie
 
-cron "2 0 * * *" script-path=http://192.168.48.181:5500/script/ppgjx/ppgjx_checkin.js,timeout=30,tag=皮皮工具箱签到
-cron "0 */15 8-20 * * ?" script-path=http://192.168.48.181:5500/script/ppgjx/ppgjx_vip_balance.js,timeout=30,tag=皮皮工具箱VIP兑换库存检测
+cron "2 0 * * *" script-path=https://raw.githubusercontent.com/xzxiaoshan/ios_script/main/script/ppgjx/ppgjx_checkin.js,timeout=30,tag=皮皮工具箱签到
+cron "0 */15 8-20 * * ?" script-path=https://raw.githubusercontent.com/xzxiaoshan/ios_script/main/script/ppgjx/ppgjx_vip_balance.js,timeout=30,tag=皮皮工具箱VIP兑换库存检测
 
 hostname = api.ppgjx.com
