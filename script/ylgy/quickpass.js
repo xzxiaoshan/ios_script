@@ -9,6 +9,6 @@ switch ($request.url.match(/map|personal|json/)[0]){
     objk["nick_name"] = "金字塔的顶端";
     break;
   default:
-  $done({ body: $response.body.replace(/false/g,'true') });
+    $done({ body: $response.body.replace(/false/g,'true') });
 }
 $done({body: JSON.stringify(Body)});
