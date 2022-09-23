@@ -6,7 +6,7 @@
 #!icon = https://raw.githubusercontent.com/xzxiaoshan/ios_script/main/script/ylgy/icon.png
 
 [Script]
-http-response ^https.*easygame2021\.com(\/sheep\/v1\/game\/(map_info_ex|personal_info|user_info)?) script-path=https://raw.githubusercontent.com/xzxiaoshan/ios_script/main/script/ylgy/quickpass.js, requires-body=true, tag=羊了个羊
+http-response ^https.*easygame2021\.com(\/sheep\/v1\/game\/(map|personal)\_info?(?!map_id=80001)|.+72bbe\.json) script-path=https://raw.githubusercontent.com/xzxiaoshan/ios_script/main/script/ylgy/quickpass.js, requires-body=true, tag=羊了个羊
 
 [MITM]
 hostname = cat-match.easygame2021.com
