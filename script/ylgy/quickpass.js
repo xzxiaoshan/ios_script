@@ -1,3 +1,4 @@
+console.log('>>>>>>>>>>>> ylgy script start');
 var Body = JSON.parse($response.body);
 switch ($request.url.match(/map|personal|json/)[0]){
   case "map":
